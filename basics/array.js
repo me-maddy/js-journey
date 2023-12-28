@@ -149,9 +149,9 @@
 // console.log(result);
 
 // const arr = ["Hey", "there", "You", "Rock"];
-const arr = [2, 4, 12, 25, 50, 87, 14, 6, 8, 10];
+// const arr = [2, 4, 12, 25, 50, 87, 14, 6, 8, 10];
 
 // ***************** sort() method *****************
-const sortedArr = arr.sort((a, b) => b - a);
+// const sortedArr = arr.sort((a, b) => b - a);
 // const sortedArr = arr.sort((a, b) => a - b);
-console.log(sortedArr);
+// console.log(sortedArr);
