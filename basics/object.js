@@ -101,6 +101,27 @@
 // console.log(newObj);
 
 // ***************************Object.getOwnPropertyDescriptor()*************************
-const obj = { name: "Madan", age: 24, qualification: "Graduation" };
-const desc1 = Object.getOwnPropertyDescriptor(obj, "name");
-console.log(desc1);
+// const obj = { name: "Madan", age: 24, qualification: "Graduation" };
+// const desc1 = Object.getOwnPropertyDescriptor(obj, "name");
+// console.log(desc1);
+
+// ***************************Object.getOwnPropertyDescriptors()*************************
+// const obj = { name: "Madan" };
+// const desc2 = Object.getOwnPropertyDescriptors(obj);
+// console.log(desc2);
+
+// ***************************Object.getOwnPropertyNames()*************************
+// const propertyNames = Object.getOwnPropertyNames(obj);
+// console.log(propertyNames);
+
+// ***************************Object.getOwnPropertyNames()*************************
+// const propertySymbols = Object.getOwnPropertySymbols(obj);
+// console.log(propertySymbols);
+
+// ***************************Object.hasOwn()*************************
+// console.log(Object.hasOwn(obj, "name"));
+// console.log(Object.hasOwn(obj, "toString"));
+
+// ***************************Object.prototype.hasOwnProperty()*************************
+// console.log(obj.hasOwnProperty("name"));
+// console.log(obj.hasOwnProperty("toString"));
