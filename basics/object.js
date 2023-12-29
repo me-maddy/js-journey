@@ -59,10 +59,25 @@
 // ***********************Object.defineProperties() method ***********************
 // const obj = {};
 // Object.defineProperties(obj, {
-//   name: { value: "Madan", enumerable: true },
+//   name: { value: "Madan", enumerable: true, writable: true },
 //   age: { value: 24, enumerable: true, writable: true },
 //   profession: { value: "Coding", enumerable: true, writable: true },
 // });
+
+// Object.seal(obj);
+// console.log(obj);
+// obj.name = "Manjeet";
+// obj.last = "Sharma";
+// console.log(obj);
+// console.log(Object.isSealed(obj));
+
+// Object.freeze(obj);
+// obj.age = 26;
+// obj.new = "Namaste";
+// console.log(obj);
+
+// console.log(Object.isExtensible(obj));
+// console.log(Object.isFrozen(obj));
 // Object.defineProperties(obj, { name: "Madan" }); // =======> throws an Error
 // obj.name = "Manjeet"; // It will not override name property of obj until writable is not true
 
@@ -125,3 +140,18 @@
 // ***************************Object.prototype.hasOwnProperty()*************************
 // console.log(obj.hasOwnProperty("name"));
 // console.log(obj.hasOwnProperty("toString"));
+
+// ***************************Object.is()*************************
+// console.log(Object.is(1, 1));  //true
+// console.log(Object.is(1, "1"));  //false
+// console.log(Object.is({}, {}));  //false
+
+// *************************Object.keys() method **********************
+// const obj = { name: "Madan", age: 24, qualification: "Graduation" };
+// const keys = Object.keys(obj);
+// console.log(obj);
+// console.log(keys);
+
+// *************************Object.values() method **********************
+// const values = Object.values(obj);
+// console.log(values);
