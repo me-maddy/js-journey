@@ -52,3 +52,9 @@
 // const obj = sayMyName();
 // console.log(obj);
 // sayName();
+
+// Immediately Invoked Function Expression (IIFE)
+// (function sayMyName() {
+//   console.log("My name is Madan Sharma");
+//   console.log("Database connection is established");
+// })();
