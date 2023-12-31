@@ -1,11 +1,11 @@
-const myMap = new Map();
-// console.log(myMap); // Map(0) {}
+// const myMap = new Map();
+// // console.log(myMap); // Map(0) {}
 
-myMap.set("a", "first");
-myMap.set(NaN, "not a number");
-myMap.set(2, "Two");
+// myMap.set("a", "first");
+// myMap.set(NaN, "not a number");
+// myMap.set(2, "Two");
 
-console.log(myMap); // Map(3) { 'a' => 'first', NaN => 'not a number', 2 => 'Two' }
+// console.log(myMap); // Map(3) { 'a' => 'first', NaN => 'not a number', 2 => 'Two' }
 // console.log(myMap.get(NaN)); //Output --> not a number
 // console.log(myMap.get(5)); // undefined
 // console.log(myMap.has(5)); // false
@@ -75,8 +75,8 @@ console.log(myMap); // Map(3) { 'a' => 'first', NaN => 'not a number', 2 => 'Two
 // }); // throws an error
 
 // ***************** keys() in Map******************** */
-const mapKeys = myMap.keys();
-console.log(mapKeys);
+// const mapKeys = myMap.keys();
+// console.log(mapKeys);
 
 // for (const key in mapKeys) {
 //   console.log(key);
@@ -90,4 +90,34 @@ console.log(mapKeys);
 //   console.log(element);
 // }); // throws an error
 
-Array.from(mapKeys).forEach((item) => console.log(item));
+// Array.from(mapKeys).forEach((item) => console.log(item));
+// const iterable = [5, 8];
+
+// const myMap = new Map([
+//   ["a", "first"],
+//   ["b", "second"],
+//   [1, "one"],
+//   [NaN, "not a number"],
+//   iterable,
+// ]);
+// console.log(myMap);
+// const aar = Array.from(myMap);
+// console.log(aar);
+
+// const myMap = new Map([
+//   [1, "one"],
+//   [2, "two"],
+// ]);
+// const myMap1 = new Map([
+//   [5, { name: "Madan" }],
+//   [3, "three"],
+//   [4, "four"],
+// ]);
+// const myMap2 = new Map([...myMap, ...myMap1]);
+// console.log(myMap2);
+// console.log(myMap2.get(5));
+// myMap2.get(5).name = "Manjeet";
+// myMap2.set(5, { name: "Manjeet" });
+// console.log(myMap2.get(5));
+// console.log(myMap2);
+// console.log(myMap1);
