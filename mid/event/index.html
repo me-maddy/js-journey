@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+    <script src="main.js" defer></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .move-circle {
+            position: absolute;
+            z-index: 2;
+        }
+
+        .heart {
+            width: 0px;
+            height: 0px;
+            border: 40px solid red;
+            border-left-color: transparent;
+            border-right-color: transparent;
+            border-bottom-color: transparent;
+            animation: heart 0.6s ease-in 0.1s infinite;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                background-color: red;
+                left: -40px;
+                top: -63px;
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 40px;
+                height: 40px;
+                border-radius: 100%;
+                background-color: red;
+                right: -40px;
+                top: -63px;
+            }
+        }
+
+        @keyframes heart {
+            0% {
+                transform: scale(1.0001);
+                /* scale: 1.0001; */
+            }
+
+            50% {
+                transform: scale(1.1);
+                /* scale: 1.1; */
+            }
+
+            100% {
+                transform: scale(1);
+                /* scale: 1; */
+            }
+
+        }
+
+        .dis-none {
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="position: relative;">
+    <div class="move-circle dis-none heart">
+
+    </div>
+    <div id="img-container">
+        <h2>Work on events</h2>
+        <ul id="images" style="position: relative; width: 100%;">
+            <!-- <div class="move-circle"
+                style="position: absolute; width: 0px; height: 16px; background-color: rebeccapurple; border-radius: 100%;">
+            </div> -->
+            <li><img src="https://i.pinimg.com/236x/ad/b4/eb/adb4eb275c60d63672c8a9eb4c5d2f6d.jpg" alt="chai" id="chai">
+            </li>
+            <li><img src="https://i.pinimg.com/236x/65/3c/75/653c759f23a58107ca0ff57de215d149.jpg" alt="code" id="code">
+            </li>
+            <li><img src="https://i.pinimg.com/236x/95/5f/4e/955f4e92b6721997bf7f6b04c14d7d2b.jpg" alt="owl" id="owl">
+            </li>
+            <li><img src="https://i.pinimg.com/236x/f3/7d/59/f37d59dff6a4e7791e2504964f668b61.jpg" alt="food" id="food">
+            </li>
+            <li><img src="https://i.pinimg.com/236x/31/ca/cf/31cacfc8bceb2011c2f23ea32d2fbfa1.jpg" alt="anime"
+                    id="anime"></li>
+            <li><a href="https://www.google.com">Go to google</a></li>
+        </ul>
+    </div>
+</body>
+
+</html>
