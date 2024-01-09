@@ -10,3 +10,5 @@ console.log(Array.prototype.fill()); // returns an empty object
 
 - Prototype, in function, is an object that we get when we create a new function or use built-in function. It can be empty or have properties and methods. It can only be accessed by FunctionName.prototype.
 - We can also set properties and methods inside the prototype of function using FunctionName.prototype.newPropertyName.
+
+## Now, let's understand this concept of prototype by demonstration :-
