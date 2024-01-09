@@ -40,3 +40,89 @@ console.log(obj.__proto__ === Object.prototype); // returns true
 - This chain can be long as it can but at last it should linked to a null.
 - This is a behaviour of javascript to search properties inside a [[Prototype]].
 - It can also be possible that we can set [[Prototype]] of an object by ourself. This is happened in inheritance which actually sets the [[Prototype]] of an object. Behind the scenes, it actually sets the [[Prototype]] of an object with an another object. So that, one object can able to access properties and methods of an another object.
+
+## Important conceps in js :-
+
+- All strings, objects, arrays and prototype of functions, all inherit properties of global Object function inside the [[Prototype]] chain.
+- String and Array are a function which has prototype. Inside this prototype, already defined properties and methods are present and this prototype is an object so obviously it has [[Prototype]] which is linked with prototype of Object function. Prototype of Object function is an object and has defined properties and methods are present and further this has [[Prototype]] which is linked with null [[Prototype]].
+- This is the reason behind all strings, objects and arrays can be able to access properties and methods of prototype of Object function.
+- Strings, Arrays, Function's prototype ========> Object.prototype ========> null
+
+## Functions in js
+
+- Functions in js, acts as a function but it can also act as an object.
+
+```javascript
+function multiplyBy2(num) {
+  return num * 2;
+}
+
+multiplyBy2.set = "Setter";
+multiplyBy2.get = "Getter";
+console.log(multiplyBy2); // returns [Function: multiplyBy2] { set: 'Setter', get: 'Getter' }
+console.log(multiplyBy2.get); // returns "Getter"
+console.log(multiplyBy2.set); // returns "Setter"
+
+console.log(multiplyBy2(5)); // acts as a normal function
+console.log(multiplyBy2.prototype); //returns {}
+console.log(multiplyBy2.prototype.__proto__); // returns prototype of global Object.
+
+console.log(Object.prototype);
+console.log(Object.prototype === multiplyBy2.prototype.__proto__); // returns true
+```
+
+## Let's create a new function to demonstrate the work that happened under the hood!
+
+```javascript
+function createUser(username, price) {
+  this.username = username;
+  this.price = price;
+  //   return this;
+}
+
+createUser.prototype.increment = function () {
+  //   console.log("Increment function");
+  this.price++;
+};
+
+createUser.prototype.printMe = function () {
+  console.log(`Price is ${this.price}`);
+};
+
+// createUser.increment(); // throws an error
+createUser.prototype.increment(); // it will work
+createUser.prototype.printMe(); // it will work
+
+// This will create new instances
+const userOne = new createUser("Madan", 25);
+const userTwo = new createUser("Hemraj", 24);
+
+console.log(userOne.printMe()); // It will work and output : Price is 25
+console.log(userTwo.printMe()); // It will work and output : Price is 24
+
+console.log(userOne); // returns createUser { username: 'Madan', price: 25 }
+console.log(userTwo); // returns createUser { username: 'Hemraj', price: 24 }
+
+console.log(userTwo.__proto__); // returns reference of prototype of createUser function
+console.log(userOne.__proto__); // returns reference of prototype of createUser function
+
+console.log(userOne.__proto__ === userTwo.__proto__); // returns true
+console.log(userOne.__proto__ === createUser.prototype); // returns true
+
+console.log(userOne.__proto__.__proto__); // returns reference of prototype of global Object function
+
+userOne.__proto__.trueLength = function () {
+  console.log("True Length!");
+};
+
+console.log(createUser.prototype.trueLength()); // True Length!
+console.log(userTwo.trueLength()); // True Length!
+console.log(createUser.prototype);
+console.log(userTwo.__proto__);
+
+console.log(userTwo.__proto__ === createUser.prototype); // returns true
+```
+
+### Working of new keyword that does under the hood while creating a new instance from function.
+
+1. It creates new empty object{}.
