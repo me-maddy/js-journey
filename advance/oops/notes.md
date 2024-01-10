@@ -125,4 +125,13 @@ console.log(userTwo.__proto__ === createUser.prototype); // returns true
 
 ### Working of new keyword that does under the hood while creating a new instance from function.
 
-1. It creates new empty object{}.
+- When we call a function using 'new' keyword, this new keyword performs some operations to create new object. And function which called using 'new' keyword is said to be constructor.
+
+1. First, 'new' keyword reserves a new space into a memory and creates a empty object in that created space.
+2. 'new' keyword assign the reference of this new empty object to the 'this' keyword. this ====> reference of newly created empty object.
+3. It calls the constructor function and wrapped all the arguments into a argument object.
+4. Javascript does their normal work and 'this' keyword store properties and methods inside currently created object.
+5. 'new' keyword does also one important thing, it actually set [[Prototype]] or **proto** of newly created object with the prototype of constructor function. It means **proto** of newly created object will have the reference of prototype of it's parent function.
+6. At last, 'new' keyword returns the newly created object. It is reason why we get new object everytime, when we call constructor function with 'new' keyword. But, all newly created objects have same reference of prototype of it's parent function in their [[Prototype]].
+7. Remember, we have only reference of prototype of function. It means, if we update, add, or delete any property or method of prototype of function then this change will reflect in all instances of this function.
+8. If we have object then it means, surely this object has [[Prototype]] which can further linked only with an object or null.
