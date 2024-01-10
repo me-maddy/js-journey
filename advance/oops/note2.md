@@ -135,3 +135,79 @@ console.log(userTwo.__proto__ === createUser.prototype); // returns true
 6. At last, 'new' keyword returns the newly created object. It is reason why we get new object everytime, when we call constructor function with 'new' keyword. But, all newly created objects have same reference of prototype of it's parent function in their [[Prototype]].
 7. Remember, we have only reference of prototype of function. It means, if we update, add, or delete any property or method of prototype of function then this change will reflect in all instances of this function.
 8. If we have object then it means, surely this object has [[Prototype]] which can further linked only with an object or null.
+
+## Add user-defined methods or properties in the prototype of already defined functions like Array, String, or Object.
+
+```javascript
+const myName = "Madan      ";
+const channel = "WebReb     ";
+// console.log(myName.length);
+// console.log(myName.trim().length);
+// console.log(channel.trim().length);
+
+// console.log(myName.__proto__);
+// console.log(String.prototype);
+// console.log(String.prototype === myName.__proto__); // returns true
+
+String.prototype.trueLength = function () {
+  // console.log(this);
+  // console.log(this === String.prototype);
+  console.log(`True length is ${this.trim().length}`);
+};
+
+myName.trueLength(); // 5
+channel.trueLength(); // 6
+"    my    ".trueLength(); // 2
+
+// String.prototype.trueLength();
+// console.log(String.prototype);
+
+const arr = ["Madan", "Manjeet"];
+const obj1 = { username: "Madan" };
+
+Object.prototype.sayMyName = function () {
+  console.log("My name is Madan.");
+};
+
+myName.sayMyName(); // it will work
+arr.sayMyName(); // will work
+obj1.sayMyName(); // will work
+arr.trueLength(); // throw an error because it only reflects only for Strings. Reason is that we only add trueLength method in the prototype of String function and it only attached with proto of strings when we create strings or work with strings.
+```
+
+- In case when we add properties and methods in the prototype of Object function, this means everything in js(strings, arrays, objects) can able to access those added properties and methods because prototype of Object function is linked with proto chain of every object(strings, arrays, objects).
+- In case when we add properties and methods in the prototype of particular function like user-defined, Array, String, it means only instances of those functions can able to acces those added properties and methods. For example, if we add any method in the prototype of String function then only instances of this String function can able to access this added method.
+
+## Inheritance
+
+```javascript
+const friend = {
+  one: "Manjeet",
+  two: "Himanshu",
+  three: "Raghvan",
+  four: "Yogesh",
+  five: "Gaurav",
+};
+
+const user = {
+  username: "Madan",
+  //   __proto__: friend,
+};
+
+const teacher = {
+  name: "Hitesh Bhai",
+};
+
+Object.setPrototypeOf(user, friend);
+// user.__proto__.__proto__ = teacher;
+Object.setPrototypeOf(user.__proto__, teacher);
+
+console.log(friend.username); // undefined
+console.log(user.one); // Manjeet
+console.log(user.two); // Himanshu
+
+console.log(user.name); // Hitesh Bhai
+console.log(friend.name); // Hitesh Bhai
+```
+
+- Object.setPrototype is used to set proto of any object to null or an object.
