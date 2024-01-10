@@ -33,6 +33,7 @@
 // console.log(obj.__proto__); // This is present in objects which is a reference of prototype of it's parent Function.
 
 // console.log(obj.__proto__ === Object.prototype); // returns true
+
 /**
  * obj.__proto__ === Object.prototype returns true.
  * When we create a new object, either by new keyword or using literal, [[Prototype]] or __proto__ of newly created objects has get a reference of prototype of it's parent Function.
