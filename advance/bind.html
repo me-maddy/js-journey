@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understand Bind</title>
+</head>
+
+<body>
+    <button class="btn">Click button</button>
+    <script>
+        class React {
+            constructor() {
+                this.library = "React";
+                this.server = "https://localhost::3000";
+
+                document
+                    .querySelector('.btn')
+                    .addEventListener('click', this.handleClick.bind(this))
+            }
+
+            handleClick() {
+                console.log(this);
+                console.log(`Your server is ${this.server}`);
+            }
+        }
+
+        const app = new React();
+    </script>
+</body>
+
+</html>
