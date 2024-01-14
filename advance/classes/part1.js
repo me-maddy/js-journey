@@ -1,15 +1,15 @@
-// class CreateUser {
-//   constructor(username, age) {
-//     this.username = username;
-//     this.age = age;
-//   }
+class CreateUser {
+  constructor(username, age) {
+    this.username = username;
+    this.age = age;
+  }
 
-//   getInfo() {
-//     console.log(`${this.username} is ${this.age} years old.`);
-//   }
-// }
+  getInfo() {
+    console.log(`${this.username} is ${this.age} years old.`);
+  }
+}
 
-// console.log(CreateUser.prototype.getInfo()); // output :- undefined is undefined years old.
+console.log(CreateUser.prototype.getInfo()); // output :- undefined is undefined years old.
 // const user1 = new CreateUser("Madan", 23);
 
 // console.log(user1); // output :- CreateUser { username: 'Madan', age: 23 }
