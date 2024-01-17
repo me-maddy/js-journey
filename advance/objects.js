@@ -54,3 +54,7 @@
 // for (let [key, value] of Object.entries(user)) {
 //   console.log(`${key} : ${value}`);
 // } // this loop will skip the email property of user object
+
+for (let key of Object.keys(user)) {
+  console.log(`${key} : ${user[key]}`);
+}
