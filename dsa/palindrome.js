@@ -1,17 +1,17 @@
+//  ********** One way to solve problem ***********
+// const isPalindrome = function (x) {
+//   return x < 0 ? false : x === (+x.toString().split("").reverse().join(""));
+// };
+
+// ********** Second way to solve problem *************
 const isPalindrome = function (x) {
-  const str = String(x);
-  const subStr1 = str.slice(0, str.length / 2);
-  const subStr2 = str
-    .slice(str.length / 2)
-    .split("")
-    .reverse()
-    .join("");
-  for (let i = 0; i < subStr1.length; i++) {
-    if (subStr1[i] !== subStr2[i]) {
-      return false;
-    }
+  if (x < 0) return false;
+  let str = "";
+  for (let i = x.toString().length - 1; i >= 0; i--) {
+    str += x.toString()[i];
   }
-  return true;
+
+  return x === +str;
 };
 
-console.log(isPalindrome("141441"));
+console.log(isPalindrome(144141));
