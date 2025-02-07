@@ -31,4 +31,62 @@ const printAllSubSequences = (index, originalArr, arr, n, sum) => {
   printAllSubSequences(index + 1, originalArr, arr, n, sum);
 };
 
-printAllSubSequences(0, originalArr, [], originalArr.length, 0);
+// printAllSubSequences(0, originalArr, [], originalArr.length, 0);
+
+function printOneSubSequenceWhoseSumK(index, originalArr, arr, sum, K, n) {
+  if (index === n) {
+    if (sum === K) {
+      console.log(arr);
+      return true;
+    }
+    return false;
+  }
+  arr.push(originalArr[index]);
+  if (
+    printOneSubSequenceWhoseSumK(
+      index + 1,
+      originalArr,
+      arr,
+      sum + originalArr[index],
+      K,
+      n
+    )
+  )
+    return true;
+
+  arr.pop(originalArr[index]);
+  if (printOneSubSequenceWhoseSumK(index + 1, originalArr, arr, sum, K, n))
+    return true;
+
+  return false;
+}
+
+// printOneSubSequenceWhoseSumK(0, originalArr, [], 0, 2, originalArr.length);
+
+function countOfSubSequencesWhoseSumK(index, originalArr, sum, K, n) {
+  if (index === n) {
+    if (sum === K) {
+      return 1;
+    }
+    return 0;
+  }
+
+  let l = countOfSubSequencesWhoseSumK(
+    index + 1,
+    originalArr,
+    sum + originalArr[index],
+    K,
+    n
+  );
+  let r = countOfSubSequencesWhoseSumK(index + 1, originalArr, sum, K, n);
+  return l + r;
+}
+
+const count = countOfSubSequencesWhoseSumK(
+  0,
+  originalArr,
+  0,
+  3,
+  originalArr.length
+);
+console.log(count);
