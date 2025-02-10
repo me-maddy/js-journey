@@ -8,5 +8,17 @@ function lcm(a, b) {
   }
 }
 
-const result = lcm(8, 0);
+function getLCMByEAlgo(a, b) {
+  let a1 = a,
+    b1 = b;
+  while (b != 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return (a1 / a) * b1;
+}
+
+// const result = lcm(8, 0);
+const result = getLCMByEAlgo(8, 8);
 console.log(result);
